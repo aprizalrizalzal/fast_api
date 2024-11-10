@@ -23,3 +23,28 @@ class User(Base):
         if today.month < self.birth_date.month or (today.month == self.birth_date.month and today.day < self.birth_date.day):
             delta_years -= 1
         return delta_years
+
+    # Menambahkan properti untuk menghitung months_to_bday secara dinamis
+    @property
+    def months_to_bday(self):
+        today = date.today()
+        if today.month < self.birth_date.month or (today.month == self.birth_date.month and today.day < self.birth_date.day):
+            next_birthday = date(today.year, self.birth_date.month, self.birth_date.day)
+        else:
+            next_birthday = date(today.year + 1, self.birth_date.month, self.birth_date.day)
+        
+        delta_months = next_birthday.month - today.month
+        if delta_months < 0:
+            delta_months += 12
+        return delta_months
+
+    # Menambahkan properti untuk menghitung days_to_bday secara dinamis
+    @property
+    def days_to_bday(self):
+        today = date.today()
+        if today.month < self.birth_date.month or (today.month == self.birth_date.month and today.day < self.birth_date.day):
+            next_birthday = date(today.year, self.birth_date.month, self.birth_date.day)
+        else:
+            next_birthday = date(today.year + 1, self.birth_date.month, self.birth_date.day)
+        
+        return (next_birthday - today).days

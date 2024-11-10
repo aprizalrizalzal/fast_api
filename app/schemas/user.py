@@ -20,7 +20,9 @@ class UserCreate(BaseModel):
 # Skema respons untuk user, termasuk daftar gambar pengguna
 class UserResponse(UserCreate):
     id: UUID
-    age: int  # Menambahkan age di response
+    age: int  # Usia dihitung di model
+    months_to_bday: int  # Bulan menuju ulang tahun dihitung di model
+    days_to_bday: int  # Hari menuju ulang tahun dihitung di model
     images: List[UserImageResponse] = []
 
     # Mengizinkan konversi dari objek SQLAlchemy
