@@ -11,4 +11,5 @@ class UserImage(Base):
     user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False)
     image_url = Column(String, nullable=False)
 
-    user = relationship("User", back_populates="images")
+    # Relasi dengan model User (Many-to-One): Setiap gambar terkait dengan satu pengguna
+    user = relationship("User", back_populates="images", cascade="all, delete")

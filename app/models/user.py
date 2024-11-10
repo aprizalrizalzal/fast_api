@@ -11,4 +11,5 @@ class User(Base):
     name = Column(String, index=True, nullable=False)
     birth_date = Column(Date, nullable=False)
 
+    # Relasi dengan model UserImage (One to Many), satu pengguna bisa memiliki banyak gambar
     images = relationship("UserImage", back_populates="user")
