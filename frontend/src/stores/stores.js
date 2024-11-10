@@ -26,24 +26,46 @@ export const useStore = defineStore('store', {
       return response.data.message
     },
 
-    async fetchUsers() {
-      const response = await api.get('/users')
-
-      this.users = response.data.users
-
-      return response.data.users
-    },
-
-    async fetchUserById(userIds) {
-      const response = await api.get('/users')
+    async postUsers(userData) {
+      const response = await api.post('/users', userData)
 
       this.user = response.data
 
       return response.data
     },
 
-    async deleteUserById(userIds) {
-      const response = await api.delete('/users')
+    async fetchUsers() {
+      const response = await api.get('/users')
+
+      this.users = response.data
+
+      return response.data
+    },
+
+    async fetchUserById(userId) {
+      const response = await api.get(`/users/${userId}`)
+
+      this.user = response.data
+
+      return response.data
+    },
+
+    async postImageByUserId(userId, imageUser) {
+      const headers = {
+        'Content-Type': 'multipart/form-data',
+      };
+
+      const response = await api.post(`/user_images/?user_id=${userId}`, imageUser, {
+        headers,
+      });
+
+      this.user = response.data
+
+      return response.data
+    },
+
+    async deleteUserById(userId) {
+      const response = await api.delete(`/users/${userId}`)
 
       this.message = response.data.message
 
