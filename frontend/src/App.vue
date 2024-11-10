@@ -1,14 +1,34 @@
 <script setup>
+import { onMounted, ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import { useStore } from './stores/stores';
+
+const store = useStore();
+
+const fetchWelcome = async () => {
+  message.value = await store.fetchWelcome();
+};
+
+const fetchUsers = async () => {
+    users.value = await store.fetchUsers();
+};
+
+onMounted(() => {
+  fetchWelcome();
+    fetchUsers();
+});
+
+const users = ref([]);
+const user = ref({});
+const message = ref({});
+
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld :msg="message" />
     </div>
   </header>
 
