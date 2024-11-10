@@ -20,6 +20,7 @@ class UserCreate(BaseModel):
 # Skema respons untuk user, termasuk daftar gambar pengguna
 class UserResponse(UserCreate):
     id: UUID
+    age: int  # Menambahkan age di response
     images: List[UserImageResponse] = []
 
     # Mengizinkan konversi dari objek SQLAlchemy
