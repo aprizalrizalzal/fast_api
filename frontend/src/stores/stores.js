@@ -50,6 +50,14 @@ export const useStore = defineStore('store', {
       return response.data
     },
 
+    async updateUserById(userId, userData) {
+      const response = await api.put(`/users/${userId}`, userData)
+
+      this.user = response.data
+
+      return response.data
+    },
+
     async postImageByUserId(userId, imageUser) {
       const headers = {
         'Content-Type': 'multipart/form-data',
@@ -60,6 +68,16 @@ export const useStore = defineStore('store', {
       });
 
       this.user = response.data
+
+      return response.data
+    },
+
+    async deletUserImageById(imageId) {
+      const response = await api.delete(`/user_images/${imageId}`)
+
+      this.message = response.data.message
+
+      await this.fetchUsers()
 
       return response.data
     },
