@@ -93,6 +93,7 @@ function deletUserById(userId) {
   store.deleteUserById(userId).then((data) => {
     if (data) {
       fetchUsers()
+      resetForm()
     }
   })
 }
