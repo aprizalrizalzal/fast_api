@@ -1,8 +1,9 @@
 # FastAPI dan Vue
 
 *Back End* dengan FastAPI dan *Front End* dengan Vue.
-- **Tabel `users`**: field `name`, `birth_date`, dan `id` unik.
-- **Tabel `user_images`**: Menyimpan gambar yang di upload relasi ke `user_id`.
+- Setiap tabel menggunakan `id` unik
+- **Tabel `users`**: field `name`, `birth_date`.
+- **Tabel `user_images`**: field `image_url`, Menyimpan gambar yang di upload relasi ke `user_id`.
 
 # Menjalankan Back End
 ```bach
