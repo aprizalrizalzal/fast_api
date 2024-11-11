@@ -4,9 +4,6 @@
 - **Tabel `users`**: field `name`, `birth_date`, dan `id` unik.
 - **Tabel `user_images`**: Menyimpan gambar yang di upload relasi ke `user_id`.
 
-- Tidak menggunakn Virtual Environment `.venv`
-- `requirements.txt` Mencantumkan semua paket yang terinstal di sistem.
-
 # Menjalankan Back End
 ```bach
 cd backend
@@ -28,3 +25,6 @@ Port:
 
 # Catatan
   - Pada frontend belum sepenuhnya menampilkan pesan kesalahan saat melakukan methode ke backend, lebih mengunakan (DevTools) bawaan browser
+  - Saya tidak menggunakn Virtual Environment `.venv`
+  - `requirements.txt` Mencantumkan semua paket yang terinstal di sistem yang saya pakai (Global).
+
